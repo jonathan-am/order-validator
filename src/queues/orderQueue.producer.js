@@ -5,7 +5,7 @@ export const defineChannel = (chan) => {
 }
 
 export const produce = async (order) => {
-    channel.sendToQueue('order.queue', Buffer.from(JSON.stringify(order)), {persistent: true})
+    channel.sendToQueue('order.queue', Buffer.from(JSON.stringify({order: order, error: []})), {persistent: true})
 }
 
 export default {
